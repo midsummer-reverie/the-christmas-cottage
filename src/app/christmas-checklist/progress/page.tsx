@@ -22,7 +22,7 @@ const expressStops = [
 
 export default async function WeekProgressPage() {
   const access = await getActivityAccess("christmas-checklist");
-  if (access.isLocked && !access.isAdmin) return <ActivityLockedScreen title="12 Days Before Christmas" note="รถไฟคริสต์มาสยังจอดพัก รอเสียงระฆังเรียกขบวนก่อนนะ"/>;
+  if (access.isLocked && !access.isAdmin) return <ActivityLockedScreen title="12 Days of Christmas" note="รถไฟคริสต์มาสยังจอดพัก รอเสียงระฆังเรียกขบวนก่อนนะ"/>;
   const member = access.member;
   const db = requireDb();
   const [tasks, people, entries] = await Promise.all([
@@ -34,7 +34,7 @@ export default async function WeekProgressPage() {
   const childrenOf = (id: string) => tasks.filter((task) => task.parentTaskId === id);
 
   return <main className="week-page week-progress-page">
-    <header className="snack-header"><Link href="/christmas-checklist">← กลับไป 12 Days Before Christmas</Link><span>✳ THE CHRISTMAS COTTAGE</span><div>{member ? <><ProfileAvatar value={member.avatarUrl} className="snack-avatar"/><b>{member.accountDisplayName || member.displayName}</b><Link href="/account">บัญชี</Link><LogoutButton/></> : <Link href={`/sign-in?returnTo=${encodeURIComponent("/christmas-checklist/progress")}`}>เข้าสู่ระบบ</Link>}</div></header>
+    <header className="snack-header"><Link href="/christmas-checklist">← กลับไป 12 Days of Christmas</Link><span>✳ THE CHRISTMAS COTTAGE</span><div>{member ? <><ProfileAvatar value={member.avatarUrl} className="snack-avatar"/><b>{member.accountDisplayName || member.displayName}</b><Link href="/account">บัญชี</Link><LogoutButton/></> : <Link href={`/sign-in?returnTo=${encodeURIComponent("/christmas-checklist/progress")}`}>เข้าสู่ระบบ</Link>}</div></header>
     <div className="week-content"><section className="week-hero"><div className="week-garland" aria-hidden="true">✦　🕯️　🎄　🕯️　✦</div><span>OUR LITTLE WINTER JOURNAL</span><h1>The Christmas Express</h1><p>รถไฟของแต่ละคนกำลังเดินทาง แวะดูได้ว่าเพื่อน ๆ ไปถึงสถานีไหนกันแล้ว</p><div className="week-hero-stats"><b>🚂 {people.length} ขบวน</b><i/><b>✍️ {entries.length} โพสต์ที่ฝากไว้</b><i/><b>❄️ {roots.length} สถานี</b></div></section>
       {!people.length ? <div className="week-empty">ชานชาลายังเงียบอยู่ รอผู้โดยสารคนแรกมาขึ้นรถไฟนะ 🎄</div> : <div className="week-train-people">{people.map((person, personIndex) => {
         const own = entries.filter((entry) => entry.memberId === person.id);

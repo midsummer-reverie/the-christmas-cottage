@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 export default async function WeekBeforeChristmasPage() {
   const access = await getActivityAccess("christmas-checklist");
-  if (access.isLocked && !access.isAdmin) return <ActivityLockedScreen title="12 Days Before Christmas" note="รถไฟคริสต์มาสยังจอดพัก รอเสียงระฆังเรียกขบวนก่อนนะ"/>;
+  if (access.isLocked && !access.isAdmin) return <ActivityLockedScreen title="12 Days of Christmas" note="รถไฟคริสต์มาสยังจอดพัก รอเสียงระฆังเรียกขบวนก่อนนะ"/>;
   const member = access.member;
   const db = requireDb();
   const [taskRows, progressRows] = await Promise.all([

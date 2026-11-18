@@ -11,7 +11,7 @@ const activities = [
   ["🎁", "Secret Santa"],
   ["🏠", "Maple Rd. No.12"],
   ["🎄", "ต้นคริสต์มาส"],
-  ["📋", "12 Days Before Christmas"],
+  ["📋", "12 Days of Christmas"],
 ];
 
 export default function Home() {
@@ -119,7 +119,7 @@ function HomeScene() {
               if (label === "Secret Santa") return <Link className={`board-note note-${index + 1}`} key={label} href="/secret-santa">{note}</Link>;
               if (label === "Maple Rd. No.12") return <Link className={`board-note note-${index + 1}`} key={label} href="/maple-road">{note}</Link>;
               if (label === "ต้นคริสต์มาส") return <Link className={`board-note note-${index + 1}`} key={label} href="/christmas-tree">{note}</Link>;
-              if (label === "12 Days Before Christmas") return <Link className={`board-note note-${index + 1}`} key={label} href="/christmas-checklist">{note}</Link>;
+              if (label === "12 Days of Christmas") return <Link className={`board-note note-${index + 1}`} key={label} href="/christmas-checklist">{note}</Link>;
               return <button className={`board-note note-${index + 1}`} key={label} type="button">{note}</button>;
             })}</div>
             <Link className="board-people-note" href="/christmas-people"><span className="side-note-pin">✦</span><span className="side-note-tape"/><b>👥 รายชื่อเพื่อน</b><small>ชาวคอทเทจในวันคริสต์มาส</small><i>เปิดดู ↗</i></Link>

@@ -58,7 +58,7 @@ export default function WeekChecklistClient({ tasks, progress, memberId, isAdmin
   </form></details>; };
 
   return <div className="week-content">
-    <section className="week-hero"><div className="week-garland" aria-hidden="true">✦　🎄　✧　❄　✦　🎁　✧</div><span>A LITTLE PLAN FOR A LOT OF CHRISTMAS</span><h1>12 Days Before Christmas</h1><p>12 วันก่อนคริสต์มาส มาช่วยกันเก็บช่วงเวลาดี ๆ ทีละภารกิจนะ</p><div className="week-hero-stats"><b>🎁 {roots.length} ภารกิจหลัก</b><i/><b>🔗 {progress.length} โพสต์ที่แบ่งปัน</b><i/><b>🧣 {new Set(progress.map((entry) => entry.memberId)).size} คนร่วมกิจกรรม</b></div><Link className="week-progress-link" href="/christmas-checklist/progress">🚂 ดูรถไฟความคืบหน้าของทุกคน ↗</Link></section>
+    <section className="week-hero"><div className="week-garland" aria-hidden="true">✦　🎄　✧　❄　✦　🎁　✧</div><span>A LITTLE PLAN FOR A LOT OF CHRISTMAS</span><h1>12 Days of Christmas</h1><p>12 วันก่อนคริสต์มาส มาช่วยกันเก็บช่วงเวลาดี ๆ ทีละภารกิจนะ</p><div className="week-hero-stats"><b>🎁 {roots.length} ภารกิจหลัก</b><i/><b>🔗 {progress.length} โพสต์ที่แบ่งปัน</b><i/><b>🧣 {new Set(progress.map((entry) => entry.memberId)).size} คนร่วมกิจกรรม</b></div><Link className="week-progress-link" href="/christmas-checklist/progress">🚂 ดูรถไฟความคืบหน้าของทุกคน ↗</Link></section>
     <div className="week-layout">
       <section className="week-task-list"><div className="week-section-title"><span>01</span><div><h2>ภารกิจในสมุดบันทึก</h2><p>แปะลิงก์ไว้ตรงภารกิจที่ทำแล้วได้เลย</p></div></div>
         {!roots.length && <div className="week-empty">ภารกิจกำลังเตรียมตัวมา 🎄</div>}
