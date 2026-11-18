@@ -1,0 +1,1 @@
+ALTER TABLE "members" ADD COLUMN "christmas_note" text DEFAULT '' NOT NULL;

@@ -1,0 +1,1 @@
+ALTER TYPE "public"."santa_update_kind" ADD VALUE 'custom';

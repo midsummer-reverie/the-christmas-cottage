@@ -1,0 +1,125 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793928746294,
+      "tag": "0000_good_human_fly",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793930036150,
+      "tag": "0001_messy_lenny_balinger",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794177069268,
+      "tag": "0002_secret_santa_display_name",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794179162536,
+      "tag": "0003_account_profile_discord_username",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794250671775,
+      "tag": "0004_community_christmas_tree",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1794258983477,
+      "tag": "0005_reflective_ego",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1794260348590,
+      "tag": "0006_flippant_mysterio",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794261194709,
+      "tag": "0007_empty_demogoblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1794264538863,
+      "tag": "0008_fixed_vulture",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1794375430009,
+      "tag": "0009_christmas_member_notes",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1794376419982,
+      "tag": "0010_independent_christmas_people",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1794432008989,
+      "tag": "0011_christmas_snack_trays",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1794434432578,
+      "tag": "0012_christmas_week_checklist",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1794436394494,
+      "tag": "0013_nested_christmas_week_tasks",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1794525194718,
+      "tag": "0014_christmas_people_messages",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1794969303601,
+      "tag": "0015_smiling_micromacro",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1794971201479,
+      "tag": "0016_plain_blue_blade",
+      "breakpoints": true
+    }
+  ]
+}

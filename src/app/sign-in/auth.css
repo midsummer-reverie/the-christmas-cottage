@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Mali:wght@400;500;600;700&display=swap');
+.auth-page{position:fixed;inset:0;z-index:20;min-height:100dvh;display:flex;align-items:flex-start;justify-content:center;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:28px;background:radial-gradient(ellipse at 50% 0,#d8edf0,#f5f0e3 56%,#e8ded0)}
+.auth-card{width:min(100%,440px);margin-block:auto;padding:34px 38px 30px;border:1px solid #31576822;border-radius:24px;background:#fffaf0e8;box-shadow:0 25px 80px #23404a1b;text-align:center;flex:none}
+.auth-back{display:block;text-align:left;color:#5e7880;font-size:12px;text-decoration:none}
+.auth-mark{width:48px;height:48px;margin:24px auto 13px;border:1px solid #557d7b77;border-radius:50%;display:grid;place-items:center;font-size:22px;color:#557d7b}
+.auth-eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#789095}
+.auth-card h1{font:400 32px 'Kanit',serif;margin:8px 0}
+.auth-lead{font:300 14px/1.7 'Kanit',sans-serif;color:#718287;margin:0 0 22px}
+.auth-form{text-align:left;display:grid;gap:15px}
+.auth-form label{display:grid;gap:7px;font:400 13px 'Kanit',sans-serif;color:#36545c}
+.auth-form input{width:100%;height:44px;padding:0 12px;border-radius:10px;border:1px solid #9fb4b477;background:#fffefa;font:14px 'DM Sans',sans-serif;color:#183846;outline:none}
+.auth-form input:focus{border-color:#558783;box-shadow:0 0 0 3px #55878320}
+.auth-form small{font:11px 'Kanit';color:#819195}
+.auth-submit{height:46px;border:0;border-radius:11px;background:#244f57;color:#fff8e8;font:500 14px 'Kanit';cursor:pointer;transition:.2s}
+.auth-submit:hover{background:#32666a;transform:translateY(-1px)}
+.auth-submit:disabled{opacity:.55;cursor:wait;transform:none}
+.auth-notice{padding:11px 12px;border-radius:10px;background:#e8f2ec;color:#345c4b;font:12px/1.6 'Kanit';overflow-wrap:anywhere}
+.auth-notice-error{background:#fff0ed;color:#9b302b;border:1px solid #e8aaa3;font-weight:600}
+.auth-notice-error::before{content:'⚠ ';font-size:14px}
+.auth-switch{margin-top:18px;border:0;background:transparent;color:#456c70;font:12px 'Kanit';cursor:pointer}
+.auth-forgot{display:block;margin:12px auto 0;text-decoration:underline;text-underline-offset:3px}
+.reset-request-link,.reset-login-link{display:inline-block;margin-top:18px;color:#456c70;font:13px 'Kanit';text-underline-offset:3px}
+.auth-card button:focus-visible,.auth-card a:focus-visible,.auth-card input:focus-visible{outline:3px solid #32666a;outline-offset:3px}
+.auth-footnote{margin:24px 0 0;color:#9a9f96;font:11px/1.6 'Kanit'}
+@media(max-width:500px){.auth-page{padding:16px}.auth-card{padding:28px 22px}}
+.auth-card,.auth-card button,.auth-card input{font-family:'Itim','Mali',sans-serif}
+.auth-card h1,.auth-eyebrow{font-family:'Mali',sans-serif;font-weight:600}
