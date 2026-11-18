@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { requestManualPasswordHelp } from "@/app/password-help/actions";
 import "./auth.css";
 
 function getSafeReturnTo() {
@@ -36,9 +37,9 @@ export default function SignInPage() {
 
     try {
       if (mode === "forgot-password") {
-        const result = await authClient.requestPasswordReset({ email, redirectTo: `${window.location.origin}/reset-password` });
-        if (result.error) throw new Error(result.error.message ?? "ส่งคำขอรีเซ็ตรหัสผ่านไม่สำเร็จ");
-        setNotice("หากอีเมลนี้มีบัญชีอยู่ เราจะส่งลิงก์รีเซ็ตรหัสผ่านให้ กรุณาตรวจสอบกล่องจดหมายและโฟลเดอร์สแปม");
+        const result = await requestManualPasswordHelp(email);
+        if (!result.ok) throw new Error(result.message);
+        setNotice(result.message);
       } else if (mode === "sign-up") {
         if (!/^@[A-Za-z0-9._]{2,32}$/.test(discordUsername)) throw new Error("Discord Username ต้องมี 2–32 ตัวอักษร ใช้ตัวอักษร ตัวเลข จุด หรือ _");
         const result = await authClient.signUp.email({ name, email, password, discordUsername });
@@ -66,7 +67,7 @@ export default function SignInPage() {
         <div className="auth-mark">✳</div>
         <div className="auth-eyebrow">Northwood Christmas Co.</div>
         <h1>{mode === "sign-in" ? "กลับมาที่กระท่อม" : mode === "sign-up" ? "มาร่วมกิจกรรมกัน" : "ลืมรหัสผ่านหรือเปล่า"}</h1>
-        <p className="auth-lead">{mode === "sign-in" ? "ลงชื่อเข้าใช้เพื่อกลับไปยังกิจกรรมของคุณ" : mode === "sign-up" ? "สร้างบัญชีด้วยอีเมลที่คุณเปิดรับได้ เพื่อยืนยันตัวตนก่อนเข้าถึงข้อมูลส่วนตัว" : "กรอกอีเมลที่ใช้สมัคร แล้วเราจะส่งลิงก์สำหรับตั้งรหัสผ่านใหม่ให้"}</p>
+        <p className="auth-lead">{mode === "sign-in" ? "ลงชื่อเข้าใช้เพื่อกลับไปยังกิจกรรมของคุณ" : mode === "sign-up" ? "สร้างบัญชีด้วยอีเมลที่คุณเปิดรับได้ เพื่อยืนยันตัวตนก่อนเข้าถึงข้อมูลส่วนตัว" : "กรอกอีเมลที่ใช้สมัคร แล้วแอดมินจะตรวจสอบและติดต่อกลับทาง Discord ที่ผูกกับบัญชี"}</p>
         <form onSubmit={submit} className="auth-form">
           {mode === "sign-up" && <>
             <label>Display Name บนเว็บไซต์ RoleplayTH<input name="name" autoComplete="nickname" required minLength={2} maxLength={60} placeholder="ชื่อที่เพื่อนรู้จักคุณ" /></label>
@@ -75,7 +76,7 @@ export default function SignInPage() {
           <label>อีเมล<input name="email" type="email" autoComplete="email" required maxLength={254} /></label>
           {mode !== "forgot-password" && <label>รหัสผ่าน<input name="password" type="password" autoComplete={mode === "sign-in" ? "current-password" : "new-password"} minLength={12} maxLength={128} required /><small>อย่างน้อย 12 ตัวอักษร</small></label>}
           {notice && <div className={`auth-notice ${noticeType === "error" ? "auth-notice-error" : ""}`} role={noticeType === "error" ? "alert" : "status"} aria-live="polite">{notice}</div>}
-          <button className="auth-submit" disabled={busy}>{busy ? "กำลังดำเนินการ…" : mode === "sign-in" ? "เข้าสู่ระบบ" : mode === "sign-up" ? "สมัครและส่งอีเมลยืนยัน" : "ส่งลิงก์รีเซ็ตรหัสผ่าน"}</button>
+          <button className="auth-submit" disabled={busy}>{busy ? "กำลังดำเนินการ…" : mode === "sign-in" ? "เข้าสู่ระบบ" : mode === "sign-up" ? "สมัครและส่งอีเมลยืนยัน" : "ส่งคำขอให้แอดมินช่วย"}</button>
         </form>
         {mode === "sign-in" && <button className="auth-switch auth-forgot" type="button" onClick={() => { setNotice(""); setNoticeType("success"); setMode("forgot-password"); }}>ลืมรหัสผ่าน?</button>}
         {mode !== "forgot-password" ? <button className="auth-switch" type="button" onClick={() => { setNotice(""); setNoticeType("success"); setMode(mode === "sign-in" ? "sign-up" : "sign-in"); }}>

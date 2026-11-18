@@ -120,6 +120,13 @@
       "when": 1794971201479,
       "tag": "0016_plain_blue_blade",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1795000000000,
+      "tag": "0017_manual_password_recovery",
+      "breakpoints": true
     }
   ]
 }

@@ -31,6 +31,16 @@ export const members = pgTable("members", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+export const passwordRecoveryRequests = pgTable("password_recovery_requests", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  email: text("email").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  issuedAt: timestamp("issued_at", { withTimezone: true }),
+  tokenHash: text("token_hash"),
+  tokenExpiresAt: timestamp("token_expires_at", { withTimezone: true }),
+  tokenUsedAt: timestamp("token_used_at", { withTimezone: true }),
+});
+
 export const activityLocks = pgTable("activity_locks", {
   activityId: text("activity_id").primaryKey(),
   isLocked: boolean("is_locked").notNull().default(false),

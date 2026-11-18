@@ -28,6 +28,7 @@ export default function ActivityControlClient({ activities }: { activities: Acti
       <span className="activity-control-kicker">THE LITTLE ROOM BEHIND THE BOARD</span>
       <h1>ห้องควบคุมกิจกรรม</h1>
       <p className="activity-control-intro">ล็อกกิจกรรมไว้ก่อนถึงเวลาเปิดเผย เมื่อพร้อมแล้วค่อยปลดกลอนให้ทุกคนเข้ามาได้</p>
+      <Link className="password-help-shortcut" href="/password-help">✉ คำขอกู้บัญชี</Link>
       {message && <p className="activity-control-feedback" role="status">{message}</p>}
       <div className="activity-control-list">{activities.map((activity) => <article className={`activity-control-card ${activity.isLocked ? "is-locked" : "is-open"}`} key={activity.id}>
         <span className="activity-control-icon" aria-hidden="true">{activity.isLocked ? "🔒" : activity.icon}</span>
