@@ -19,7 +19,7 @@ export async function requestManualPasswordHelp(emailInput: string) {
 
   const db = requireDb();
   const [registered] = await db.select({ email: user.email })
-    .from(user).where(and(eq(user.email, email), eq(user.emailVerified, true))).limit(1);
+    .from(user).where(eq(user.email, email)).limit(1);
 
   // Keep the response the same for registered and unregistered emails.
   if (registered) {
@@ -41,8 +41,8 @@ export async function issueManualResetLink(requestId: string) {
   if (!request) return { ok: false, message: "ไม่พบคำขอ หรือคำขอนี้ถูกใช้ไปแล้ว" };
 
   const [registered] = await db.select({ email: user.email })
-    .from(user).where(and(eq(user.email, request.email), eq(user.emailVerified, true))).limit(1);
-  if (!registered) return { ok: false, message: "ไม่พบบัญชีที่ยืนยันอีเมลแล้วสำหรับคำขอนี้" };
+    .from(user).where(eq(user.email, request.email)).limit(1);
+  if (!registered) return { ok: false, message: "ไม่พบบัญชีสำหรับคำขอนี้" };
 
   const token = randomBytes(32).toString("base64url");
   const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
@@ -60,7 +60,7 @@ export async function issueManualResetLink(requestId: string) {
 
 export async function consumeManualResetLink(token: string, newPassword: string) {
   if (!token || token.length > 200) return { ok: false, message: "ลิงก์ไม่ถูกต้องหรือหมดอายุแล้ว" };
-  if (newPassword.length < 12 || newPassword.length > 128) return { ok: false, message: "รหัสผ่านต้องยาว 12–128 ตัวอักษร" };
+  if (newPassword.length < 8 || newPassword.length > 128) return { ok: false, message: "รหัสผ่านต้องยาว 8–128 ตัวอักษร" };
 
   const passwordHash = await hashPassword(newPassword);
   const tokenHash = digest(token);

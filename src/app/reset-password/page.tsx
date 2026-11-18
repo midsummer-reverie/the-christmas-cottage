@@ -41,9 +41,9 @@ export default function ResetPasswordPage() {
     <Link className="auth-back" href="/sign-in">← กลับไปเข้าสู่ระบบ</Link>
     <div className="auth-mark">✳</div><div className="auth-eyebrow">Northwood Christmas Co.</div>
     <h1>ตั้งรหัสผ่านใหม่</h1>
-    <p className="auth-lead">ตั้งรหัสผ่านใหม่อย่างน้อย 12 ตัวอักษรเพื่อกลับเข้าบัญชีของคุณ</p>
+    <p className="auth-lead">ตั้งรหัสผ่านใหม่อย่างน้อย 8 ตัวอักษรเพื่อกลับเข้าบัญชีของคุณ</p>
     {done ? <><div className="auth-notice" role="status">{notice}</div><Link className="reset-login-link" href="/sign-in">ไปหน้าเข้าสู่ระบบ</Link></> : <form onSubmit={submit} className="auth-form">
-      <label>รหัสผ่านใหม่<input name="password" type="password" autoComplete="new-password" minLength={12} maxLength={128} required /><small>อย่างน้อย 12 ตัวอักษร</small></label>
+      <label>รหัสผ่านใหม่<input name="password" type="password" autoComplete="new-password" minLength={8} maxLength={128} required /><small>อย่างน้อย 8 ตัวอักษร</small></label>
       {notice && <div className={`auth-notice ${isError ? "auth-notice-error" : ""}`} role={isError ? "alert" : "status"} aria-live="polite">{notice}</div>}
       <button className="auth-submit" disabled={busy}>{busy ? "กำลังบันทึก…" : "บันทึกรหัสผ่านใหม่"}</button>
     </form>}
